@@ -1,0 +1,50 @@
+So how should the rule work?
+
+
+given something like this : ix --> 9, or xl --> xc
+
+if the first character has a lesser value than the second, then subtract it from the
+second and add the result.
+
+so for example,  xcix
+
+enum value{
+one, five, ten, fifty, hundred, five-hundred, thousand
+}
+
+char *string = "ivxlcdm" -- Test if_valid
+
+compare x with c
+	x < c, so return to_int(c) - to_int(x)
+
+
+
+so for input >>
+
+   first check if string is valid --> if not abort.
+
+   Store string;
+   Convert string to roman_numeral.
+
+
+
+check_temp_precidence{
+	string 
+
+
+}
+
+xviiix --> invalid --> xiiix
+
+Convert_String_to_roman{
+	sum := 0
+	char temp := ' '
+	for each char in string:
+	    get_numerial_value(char)
+	    
+	    if temp != ' ':
+	       bool test := check_temp_predience
+	       if test fails:
+	       	  sum = get_numerical_value
+
+}

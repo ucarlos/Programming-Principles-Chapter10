@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.14)
+project(Chapter10)
+
+set(CMAKE_CXX_STANDARD 17)
+add_executable(Chapter10_Drill Chapter10_Drill.cc)
+add_executable(Problem10_01 Problem10_01.cpp)
+add_executable(Problem10_02 Problem10_02.cc)
+add_executable(Problem10_03 Problem10_03.cc)
+add_executable(Problem10_06 Problem10_06.cc)
+add_executable(Problem10_06_Alternative Problem10_06_02.cc)
+add_executable(Problem10_08 Problem10_08.cc)
+add_executable(Problem10_09 Problem10_09.cc)
+add_executable(Problem10_11 Problem10_11.cc)

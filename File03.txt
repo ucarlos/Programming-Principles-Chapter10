@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+This file is supposed to be used alongside File02 as part of Problem10_08.
+The entire point of this problem is to concatenate two files together.
+Just so you know, this file was created on Friday, October 25, 2019 at
+1:35 am.
+
+
+
+
+
+This is File02.txt, the second part of the complete file.
+I'll just place some random text here:
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada enim
+vel auctor ullamcorper. Sed dignissim vehicula nibh, eu congue elit finibus et.
+Ut in convallis quam. Mauris maximus ante id neque fermentum, sed facilisis dolor
+placerat. Vivamus tortor nunc, tempor et felis eget, ultrices blandit nisl.
+Maecenas eu venenatis odio, vitae posuere risus. Aliquam erat volutpat.
+
+Aliquam vestibulum libero vitae lacinia gravida. Vivamus sed sapien pulvinar,
+volutpat erat sed, laoreet libero. Mauris pharetra fringilla arcu, non convallis
+ante commodo sed. Cras sit amet purus vitae risus ultricies efficitur at id
+nibh.
+Aenean non lacus nulla. Aenean id lacus vel.
+
+
+--------------------------------------------------------------------------------
+
