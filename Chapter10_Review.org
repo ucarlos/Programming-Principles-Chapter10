@@ -1,0 +1,67 @@
+#+title: Chapter 10 Review
+#+author: Ulysses Carlos
+#+date: <2019-10-15 Tue>
+#+OPTIONS: toc:nil
+#+latex_class_options: [12pt]
+#+LaTeX_HEADER: \usepackage[T1]{fontenc}
+#+LaTeX_HEADER: \usepackage{mathpazo}
+#+LaTeX_HEADER: \linespread{1.05}
+#+LaTeX_HEADER: \usepackage[scaled]{helvet}
+#+LaTeX_HEADER: \usepackage{courier}
+
+* Review Questions
+** When dealing with input and output, how is the variety of devices dealt with in most computers?
+An abstraction is used where the input/output devices are handled by device drivers that can be manipulated using C++'s input/output library.
+** What, fundamentally, does an istream do?
+A istream is an abstraction of a input file(such as a .txt file or stdin) to be opened and read from.
+** What, fundamentally, does an ostream do?
+A ostream allows a file (such as a .txt file) to be opened and be written to.
+** What, fundamentally, is a file?
+A file is a collection of bytes (which can be terminated by a specific character) that can be read/written to.
+** What is a file format?
+A file format is a specification for how a file is to be interpreted.
+** Name four different types of devices that can require I/O for a program.
+Keyboard, Monitor, MP3 Player, (Google home?)
+** What are the four steps for reading a file?
+1. First, make sure that the file exists (The filepath has to be valid) in order to read it.
+2. Next, using a ifstream, implicitly open the file(through ifstream is{filename}) or through open.(filename, ios\textunderscore base::in)
+3. Using 'is' as our ifstream, you can use is >> Variable, where Variable is any Variable of a specific type.
+4. If the file was opened implicitly, then the file will be closed automatically in the scope. Otherwise, close the file using is.close().
+** What are the four steps for writing a file?
+1. First, make sure that the file exists (The filepath has to be valid) in order to read it.
+2. Next, using a ofstream, implicitly open the file(through ofstream os{filename}) or through open.(filename, ios\textunderscore base::out)   
+3. Using 'os' as our ofstream, you can use os << Variable, where Variable is any Variable of a specific type. It will write to that specific file.
+4. If the file was opened implicitly, then the file will be closed automatically in the scope. Otherwise, close the file using os.close().
+** Name and define the four stream states.
++ good() -- The file is in a good state(i.e nothing wrong)
++ eof() -- The file has met a end of line character.
++ fail() -- The file has encountered something unexpected (such as invalid input)
++ bad() -- A serious issue has occurred when reading/writing the file. In this state, it is rarely possible to recover the file.  
+  
+** Discuss how the following input problems can be resolved.
+*** The user typing a out-of-range value
+Create a function that will loop until the user can print an valid value.
+*** Getting no value (End of File)
+If the file is empty, there really is nothing else that can be done besides returning.
+However, if the file reaches eof, then there is nothing else to be read. At the point, you return.
+*** The user typing something of the wrong type
+If the user types something of the wrong type, that will generally place the file in the fail() state. You can create a program that can determine if that was a terminator (if it is, then change the stream state). If not, then return or end reading. You can also try to consume the invalid characters.
+** In what way is input usually harder than output?
+You have to account for input errors that have occurred such as input not following the proper format, whether the inputs have values that are sensible or not.
+** In what way is output usually harder than input?
+The output format has to be displayed in a good format and should be universally understood (Pulling out of my ass here)
+
+** Why do we (often) want to seperate input and output from computation?
+If there is a function that handles both, then it becomes a mess to work with (As in too long, disgusting code) and can allow errors to come up through the code.
+** What are the two most common uses of the istream member function clear()?
+You can change the state back to good() through clear() or any other specified state. For example, to place a istream in fail(), you can do clear (ios\textunderscore base::failbit). To place a istream in bad(), you can do clear(ios\textunderscore base::badbit).
+** What are the usual function declarations for << and >> for a user-defined type X?
+The usual function delcaration for << (output) is *ostream& operator<<(ostream &os, X X\textunderscore variable);* .
+Once defined, using os << X\textunderscore Variable will output the specific information written in *operator<<(ostream &os, X X\textunderscore Variable)*.
+
+Also, os << X\textunderscore Variable is syntaxic sugar for the actual function called(which is *operator<<(os, X\textunderscore Variable)*). This can be chained.
+
+
+The usual function declaration for >> (input) is *istream& operator>>(istream &is, X X\textunderscore Variable);* .
+Once defined, using is >> X\textunderscore Variable will input into X\textunderscore Variable.
+I'm not quite sure if this is the same, but *is >> X\textunderscore Variable* is also syntaxic sugar for *operator>>(is, X\textunderscore Variable);*
