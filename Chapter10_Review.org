@@ -54,14 +54,13 @@ The output format has to be displayed in a good format and should be universally
 ** Why do we (often) want to seperate input and output from computation?
 If there is a function that handles both, then it becomes a mess to work with (As in too long, disgusting code) and can allow errors to come up through the code.
 ** What are the two most common uses of the istream member function clear()?
-You can change the state back to good() through clear() or any other specified state. For example, to place a istream in fail(), you can do clear (ios\textunderscore base::failbit). To place a istream in bad(), you can do clear(ios\textunderscore base::badbit).
-** What are the usual function declarations for << and >> for a user-defined type X?
-The usual function delcaration for << (output) is *ostream& operator<<(ostream &os, X X\textunderscore variable);* .
-Once defined, using os << X\textunderscore Variable will output the specific information written in *operator<<(ostream &os, X X\textunderscore Variable)*.
+You can change the state back to good() through clear() or any other specified state. For example, to place a istream in fail(), you can do clear (ios\textunderscore base::failbit). To place a istream in bad(), you can do clear(ios_base::badbit).
+** What are the usual function declarations for << and >> for a user-defined type T?
+The usual function delcaration for << (output) is *ostream& operator<<(ostream &os, T val);* .
+Once defined, using os << T val  will output the specific information written in *operator<<(ostream &os, T val)*.
 
-Also, os << X\textunderscore Variable is syntaxic sugar for the actual function called(which is *operator<<(os, X\textunderscore Variable)*). This can be chained.
+Also, os << T val  is syntactic sugar for the actual function called(which is *operator<<(os, T val)*). This can be chained.
 
-
-The usual function declaration for >> (input) is *istream& operator>>(istream &is, X X\textunderscore Variable);* .
-Once defined, using is >> X\textunderscore Variable will input into X\textunderscore Variable.
-I'm not quite sure if this is the same, but *is >> X\textunderscore Variable* is also syntaxic sugar for *operator>>(is, X\textunderscore Variable);*
+The usual function declaration for >> (input) is *istream& operator>>(istream &is, T val);* .
+Once defined, using is >> T val will input into T val.
+I'm not quite sure if this is the same, but *is >> T val* is also syntactic sugar for *operator>>(is, T val);*
